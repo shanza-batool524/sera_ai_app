@@ -4,6 +4,9 @@ class RouteName {
 
   static const String onBoardingScreenOne = '/onBoardingScreenOne';
   static const String onBoardingScreenTwo = '/onBoardingScreenTwo';
+  static const String onBoardingScreenThree = '/onBoardingScreenThree';
   // static const String onBoardingCarousel = '/onBoardingCarousel';
+  static const String interestSelectionScreen = '/interestSelectionScreen';
+
 
 }

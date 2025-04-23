@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sera_ai_app/views/onboarding/onboarding_screen_one.dart';
+import 'package:sera_ai_app/views/onboarding/onboarding_screen_three.dart';
 import 'package:sera_ai_app/views/onboarding/onboarding_screen_two.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../res/app_colors.dart';
 
 class OnboardingCarousel extends StatefulWidget {
   const OnboardingCarousel({super.key});
@@ -30,6 +33,7 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
               children:  [
                 OnboardingScreenOne(),
                 OnboardingScreenTwo(),
+                OnboardingScreenThree()
               ],
             ),
           ),
@@ -37,13 +41,13 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
             padding: EdgeInsets.only(bottom: 30.h),
             child: SmoothPageIndicator(
               controller: _pageController,
-              count: 2,
+              count: 3,
               effect: WormEffect(
                 dotHeight: 10.h,
                 dotWidth: 10.w,
                 spacing: 10.w,
                 dotColor: Colors.white54,
-                activeDotColor: Colors.white,
+                activeDotColor: AppColor.button,
               ),
             ),
           ),

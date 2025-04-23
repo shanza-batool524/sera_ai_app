@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_core/src/get_main.dart' show Get;
 import 'package:sera_ai_app/general_widgets/primary_button.dart';
 import 'package:sera_ai_app/utils/extension.dart';
 
 import '../../res/app_colors.dart';
 import '../../routers/routers_name.dart';
 
-class OnboardingScreenTwo extends StatelessWidget {
-  const OnboardingScreenTwo({super.key});
+class OnboardingScreenThree extends StatelessWidget {
+  const OnboardingScreenThree({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class OnboardingScreenTwo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/acne.png',
+              'assets/images/accuracy.png',
               width: 350,
               height: 350,
               fit: BoxFit.cover,
@@ -27,24 +28,24 @@ class OnboardingScreenTwo extends StatelessWidget {
             RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                style: const TextStyle(
-                  fontSize: 40,
+                style: TextStyle(
+                  fontSize: 36.sp,
                   fontWeight: FontWeight.w900,
                   color: AppColor.text,
                 ),
                 children: [
-                  const TextSpan(text: 'Examine your skin '),
+                  const TextSpan(text: 'Quick Screen Analysis '),
                   TextSpan(
-                    text: 'with a snapshot',
+                    text: 'with 98% accuracy',
                     style: TextStyle(color: AppColor.purple),
                   ),
                 ],
               ),
             ),
-            30.height,
+            40.height,
             PrimaryButton(
               onTap: () {
-                Get.toNamed(RouteName.onBoardingScreenThree);
+                Get.toNamed(RouteName.interestSelectionScreen);
               },
               childWidget: Text(
                 "Continue",
