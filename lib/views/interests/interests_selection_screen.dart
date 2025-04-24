@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:sera_ai_app/utils/extension.dart';
 
+import '../../general_widgets/primary_button.dart';
 import '../../res/app_colors.dart';
+import '../../routers/routers_name.dart';
 
 class InterestSelectionScreen extends StatefulWidget {
   const InterestSelectionScreen({super.key});
 
   @override
-  State<InterestSelectionScreen> createState() => _InterestSelectionScreenState();
+  State<InterestSelectionScreen> createState() =>
+      _InterestSelectionScreenState();
 }
 
 class _InterestSelectionScreenState extends State<InterestSelectionScreen> {
@@ -23,10 +27,15 @@ class _InterestSelectionScreenState extends State<InterestSelectionScreen> {
         });
       },
       child: Container(
+        height: 110.h,
         margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ?  AppColor.purple : AppColor.button,
+          border: Border.all(
+            color: isSelected ? AppColor.purple : AppColor.text,
+            width: 0.5,
+          ),
+          color: isSelected ? AppColor.purple : AppColor.button,
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: [
             BoxShadow(
@@ -39,26 +48,31 @@ class _InterestSelectionScreenState extends State<InterestSelectionScreen> {
         child: Row(
           children: [
             CircleAvatar(
-              radius: 30,
-              child: Image.asset(
-                imagePath,
-                height: 60,
-                width: 60,
+              radius: 40.r,
+              backgroundColor: Colors.white, // or any background you like
+              child: ClipOval(
+                child: Image.asset(
+                  imagePath,
+                  height: 100.h,
+                  width: 100.w,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-           16.width,
+            16.width,
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
                   color: isSelected ? AppColor.white : AppColor.text,
                 ),
               ),
-            )
+            ),
           ],
         ),
+
       ),
     );
   }
@@ -68,65 +82,76 @@ class _InterestSelectionScreenState extends State<InterestSelectionScreen> {
     return Scaffold(
       backgroundColor: AppColor.primary,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              RichText(
-                text: const TextSpan(
-                  text: 'What do you want\n',
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            40.height,
+            RichText(
+              text: TextSpan(
+                text: 'What do you want\n',
+                style: TextStyle(
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.w900,
+                  color: AppColor.text,
+                ),
+                children: [
+                  TextSpan(text: 'to focus on '),
+                  TextSpan(
+                    text: 'using app?',
+                    style: TextStyle(color: AppColor.purple),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: buildOption(
+                'assets/images/skin_problems.png',
+                'Detect skin problems',
+                0,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: buildOption(
+                'assets/images/mole_changes.png',
+                'Explore mole changes',
+                1,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: buildOption(
+                'assets/images/skincare_product.png',
+                'Selection of skin care product',
+                2,
+              ),
+            ),
+            20.height,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: PrimaryButton(
+                onTap:
+                    selectedIndex != null
+                        ? () {
+                          Get.toNamed(RouteName.problemSpecificsScreen);
+                        }
+                        : () {},
+                childWidget: Text(
+                  "Continue",
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'to focus on ',
-                    ),
-                    TextSpan(
-                      text: 'using app?',
-                      style: TextStyle(color: AppColor.purple),
-
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 30),
-              buildOption('assets/images/accuracy.png', 'Detect skin problems', 0),
-              buildOption('assets/images/accuracy.png', 'Explore mole changes', 1),
-              buildOption('assets/images/accuracy.png', 'Selection of skin care product', 2),
-              const Spacer(),
-              GestureDetector(
-                onTap: selectedIndex != null
-                    ? () {
-                  // Handle next button tap
-                }
-                    : null,
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: selectedIndex != null
-                        ?  AppColor.purple
-                        : const Color(0xFFD1D9E6),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Next',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
+                    color: selectedIndex != null ? AppColor.white : AppColor.text,
                   ),
                 ),
+                bgColor:
+                    selectedIndex != null ? AppColor.purple : AppColor.button,
+                gradient: false,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

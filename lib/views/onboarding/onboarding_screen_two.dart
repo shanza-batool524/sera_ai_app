@@ -42,20 +42,23 @@ class OnboardingScreenTwo extends StatelessWidget {
               ),
             ),
             30.height,
-            PrimaryButton(
-              onTap: () {
-                Get.toNamed(RouteName.onBoardingScreenThree);
-              },
-              childWidget: Text(
-                "Continue",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.text,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: PrimaryButton(
+                onTap: () {
+                  Get.toNamed(RouteName.onBoardingScreenThree);
+                },
+                childWidget: Text(
+                  "Continue",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.text,
+                  ),
                 ),
+                bgColor: AppColor.button,
+                gradient: false,
               ),
-              bgColor: AppColor.button,
-              gradient: false,
             ),
           ],
         ),

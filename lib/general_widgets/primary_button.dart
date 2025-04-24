@@ -33,31 +33,28 @@ class PrimaryButton extends StatelessWidget {
       onTap: () {
         onTap();
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Container(
-          margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
-          height: height ?? 55.h,
-          alignment: Alignment.center,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25.r),
-            border: Border.all(
-              color: Colors.black,
-              width: 0.5,
-            ),
-            gradient: gradient
-                ? LinearGradient(
-              colors: [AppColor.secondary, AppColor.primary],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )
-                : null,
-            color: gradient ? null : bgColor,
+      child: Container(
+        margin: EdgeInsets.zero,
+        padding: EdgeInsets.zero,
+        height: height ?? 55.h,
+        alignment: Alignment.center,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25.r),
+          border: Border.all(
+            color: Colors.black,
+            width: 0.5,
           ),
-          child: childWidget,
+          gradient: gradient
+              ? LinearGradient(
+            colors: [AppColor.secondary, AppColor.primary],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          )
+              : null,
+          color: gradient ? null : bgColor,
         ),
+        child: childWidget,
       ),
 
     );

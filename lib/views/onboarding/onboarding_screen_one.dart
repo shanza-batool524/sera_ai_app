@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sera_ai_app/general_widgets/primary_button.dart';
 import 'package:sera_ai_app/utils/extension.dart';
 import '../../res/app_colors.dart';
@@ -70,28 +69,30 @@ class _OnboardingScreenOneState extends State<OnboardingScreenOne>
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16.sp),
             ),
-            10.height,
-            Image.asset(
-              'assets/images/reviews.png',
-              width: 250.w,
-              height: 100.h,
-              fit: BoxFit.fill,
-            ),
-            80.height,
-            PrimaryButton(
-              onTap: () {
-                Get.toNamed(RouteName.onBoardingScreenTwo);
-              },
-              childWidget: Text(
-                "Let's go",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.text,
+            // Image.asset(
+            //   'assets/images/reviews.png',
+            //   width: 250.w,
+            //   height: 100.h,
+            //   fit: BoxFit.fill,
+            // ),
+            190.height,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: PrimaryButton(
+                onTap: () {
+                  Get.toNamed(RouteName.onBoardingScreenTwo);
+                },
+                childWidget: Text(
+                  "Let's go",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.text,
+                  ),
                 ),
+                bgColor: AppColor.button,
+                gradient: false,
               ),
-              bgColor: AppColor.button,
-              gradient: false,
             ),
           ],
         ),
