@@ -3,20 +3,21 @@ import 'package:sera_ai_app/routers/routers_name.dart';
 import 'package:sera_ai_app/views/interests/interests_selection_screen.dart';
 import 'package:sera_ai_app/views/interests/problem_specifics_screen.dart';
 import 'package:sera_ai_app/views/onboarding/onboarding_carousel.dart';
+import 'package:sera_ai_app/views/onboarding/onboarding_screen_four.dart';
 import 'package:sera_ai_app/views/onboarding/onboarding_screen_one.dart';
 import 'package:sera_ai_app/views/onboarding/onboarding_screen_three.dart';
 import 'package:sera_ai_app/views/onboarding/onboarding_screen_two.dart';
 import 'package:sera_ai_app/views/pro_subscription/pro_subscription_screen.dart';
 
-import '../views/splash/splash_view.dart';
-// import '../views/splash_view.dart';
+import '../views/splash/splash_screen.dart';
+// import '../views/splash_screen.dart';
 
 class AppRoutes {
   static appRoute() => [
-    // GetPage(
-    //   name: RouteName.splashView,
-    //   page: () => const SplashView(),
-    // ),
+    GetPage(
+      name: RouteName.splashScreen,
+      page: () => const SplashScreen(),
+    ),
     GetPage(
       name: RouteName.onBoardingCarousel,
       page: () => const OnboardingCarousel(),
@@ -32,6 +33,9 @@ class AppRoutes {
     GetPage(
       name: RouteName.onBoardingScreenThree,
       page: () => const OnboardingScreenThree(),
+    ), GetPage(
+      name: RouteName.onBoardingScreenFour,
+      page: () => const OnboardingScreenFour(),
     ),
     GetPage(
       name: RouteName.interestSelectionScreen,
