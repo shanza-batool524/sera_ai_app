@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Sera AI',
           getPages: AppRoutes.appRoute(),
-          initialRoute: RouteName.splashScreen,
+          initialRoute: RouteName.profileScreen,
           // initialRoute: RouteName.splashView,
           // home: HomeScreen(),
         );

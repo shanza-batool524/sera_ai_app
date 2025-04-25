@@ -6,6 +6,7 @@ class AppColor {
   // static const Color primaryVariant = Color(0xFF3700B3);
   static const Color secondary = Color(0xFFC58BF2);
   static const Color tertiary = Color(0xFFEEA4CE);
+  static const Color tertiary_light = Color(0xFFf9ebf8);
   static const Color purple = Color(0xFF8E7DBE);
   // static const Color secondaryVariant = Color(0xFFC49350);
   static const Color  green= Color(0xFF4CAF50);
@@ -18,4 +19,6 @@ class AppColor {
   static const Color onSurface = Color(0xFFFFFFFF);
   static const Color onError = Color(0xFF000000);
   static const Color text = Color(0xFF7B6F72);
+  static const Color text_field = Color(0xffF7F8F8);
+  static const Color sec_text = Color(0xffADA4A5);
 }

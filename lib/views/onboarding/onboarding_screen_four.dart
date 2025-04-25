@@ -54,7 +54,7 @@ class _OnboardingScreenFourState extends State<OnboardingScreenFour> {
               alignment: Alignment.centerRight,
               child: GestureDetector(
                   onTap: (){
-                    Get.toNamed(RouteName.onBoardingScreenFour);
+                    Get.toNamed(RouteName.signupScreen);
                   },
                   child: Image.asset("assets/images/Button.png")),
             ),

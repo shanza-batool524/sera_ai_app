@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:sera_ai_app/general_widgets/primary_button.dart';
 import 'package:sera_ai_app/utils/extension.dart';
-
 import '../../res/app_colors.dart';
+import '../../routers/routers_name.dart';
 
 class ProSubscriptionScreen extends StatefulWidget {
   const ProSubscriptionScreen({super.key});
@@ -18,186 +19,198 @@ class _ProSubscriptionScreenState extends State<ProSubscriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // const SizedBox(height: 50),
-            Center(
-              child: Image.asset('assets/images/acne_redness.png', height: 300),
-            ),
-            RichText(
-              text: TextSpan(
-                style: TextStyle(
-                  fontSize: 35.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.text,
-                ),
-                children: [
-                  const TextSpan(text: 'Get '),
-                  TextSpan(
-                    text: 'PRO ',
-                    style: const TextStyle(color: Colors.deepPurple),
-                  ),
-                  const TextSpan(text: 'Access'),
-                ],
-              ),
-            ),
-            8.height,
-            const Text(
-              '✨ Personal AI dermatologist',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
-            ),
-            const Text(
-              '∞ Unlimited skin scanning',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
-            ),
-            20.height,
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Enable Free Trial',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Switch(
-                    value: isFreeTrialEnabled,
-                    onChanged: (value) {
-                      setState(() {
-                        isFreeTrialEnabled = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ),
-            10.height,
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: AppColor.purple,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'YEARLY ACCESS',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Rs 19,900/year',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Rs 383/week',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text(
-                      'BEST OFFER',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: AppColor.purple,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'WEEKLY ACCESS',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Rs 1,900/week',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text(
-                      'POPULAR',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            10.height,
-            PrimaryButton(
-              onTap: () {},
-              bgColor: AppColor.secondary,
-              gradient: false,
-              childWidget: Text(
-                "Continue",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-              ),
-            ),
-            10.height,
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Restore'),
-                SizedBox(width: 16),
-                Text('Terms'),
-                SizedBox(width: 16),
-                Text('Privacy'),
+                50.height,
+                Center(
+                  child: Image.asset(
+                    'assets/images/subscription.png',
+                    height: 300,
+                  ),
+                ),
+                30.height,
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 35.sp,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.black,
+                    ),
+                    children: [
+                      const TextSpan(text: 'Get '),
+                      TextSpan(
+                        text: 'PRO ',
+                        style: const TextStyle(color: AppColor.secondary),
+                      ),
+                      const TextSpan(text: 'Access'),
+                    ],
+                  ),
+                ),
+                8.height,
+                const Text(
+                  'Personal AI dermatologist\n Unlimited skin scanning\n   Export results to pdf',
+                  style: TextStyle(fontSize: 17, color: AppColor.text),
+                  textAlign: TextAlign.center,
+                ),
+                30.height,
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: AppColor.tertiary_light,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Monthly Subscription',
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                              color: AppColor.black,
+                            ),
+                          ),
+                          Text(
+                            "US\$ 5.99",
+                            style: TextStyle(
+                                fontSize: 16.sp, color: AppColor.text),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        width: 94.w,
+                        height: 26.h,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: AppColor.white,
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Text(
+                          'Popular',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppColor.secondary,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                10.height,
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppColor.tertiary_light,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Annual Subscription',
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                              color: AppColor.black,
+                            ),
+                          ),
+                          Text(
+                            "US\$ 59.99 (You save 25%)",
+                            style: TextStyle(
+                                fontSize: 14, color: AppColor.text),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        width: 94.w,
+                        height: 26.h,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: AppColor.white,
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Text(
+                          'Best Offer',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppColor.secondary,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                36.height,
+                PrimaryButton(
+                  onTap: () {},
+                  bgColor: AppColor.secondary,
+                  gradient: true,
+                  childWidget: Text(
+                    "Continue",
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.white,
+                    ),
+                  ),
+                ),
+                10.height,
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.black,
+                    ),
+                    children: [
+                      const TextSpan(text: 'Get '),
+                      TextSpan(
+                        text: 'FREE ANALYSIS ',
+                        style: const TextStyle(color: AppColor.secondary),
+                      ),
+                    ],
+                  ),
+                ),
+                15.height,
+                Text(
+                  'Privacy Policy  || Terms of use',
+                  style: TextStyle(color: AppColor.text),
+                ),
               ],
             ),
-            20.height,
-          ],
-        ),
+          ),
+          Positioned(
+            top: 36,
+            left: 16,
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(RouteName.onBoardingScreenFour);
+              },
+              child: const Icon(
+                Icons.close,
+                size: 26,
+                color: AppColor.black,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
